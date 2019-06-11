@@ -1,0 +1,46 @@
+{
+    "type": "object",
+    "properties": {
+        "accountId": {
+            "type": "array",
+            "items": {
+                "type": "integer"
+            }
+        },
+        "buyerCreativeId": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "dealsStatusFilter": {
+            "type": "string",
+            "enum": [
+                "approved",
+                "conditionally_approved",
+                "disapproved",
+                "not_checked"
+            ]
+        },
+        "maxResults": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000
+        },
+        "openAuctionStatusFilter": {
+            "type": "string",
+            "enum": [
+                "approved",
+                "conditionally_approved",
+                "disapproved",
+                "not_checked"
+            ]
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

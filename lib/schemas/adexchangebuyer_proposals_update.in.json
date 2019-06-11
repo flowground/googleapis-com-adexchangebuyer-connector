@@ -1,0 +1,247 @@
+{
+    "type": "object",
+    "properties": {
+        "proposalId": {
+            "required": true,
+            "type": "string"
+        },
+        "revisionNumber": {
+            "required": true,
+            "type": "string"
+        },
+        "updateAction": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "accept",
+                "cancel",
+                "propose",
+                "proposeAndAccept",
+                "unknownAction",
+                "updateNonTerms"
+            ]
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Represents a proposal in the marketplace. A proposal is the unit of negotiation between a seller and a buyer and contains deals which are served. Each field in a proposal can have one of the following setting:\n\n(readonly) - It is an error to try and set this field. (buyer-readonly) - Only the seller can set this field. (seller-readonly) - Only the buyer can set this field. (updatable) - The field is updatable at all times by either buyer or the seller.",
+            "properties": {
+                "billedBuyer": {
+                    "description": "Reference to the buyer that will get billed for this proposal. (readonly)",
+                    "properties": {
+                        "accountId": {
+                            "description": "Adx account id of the buyer.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "buyer": {
+                    "description": "Reference to the buyer on the proposal. (readonly, except on create)",
+                    "properties": {
+                        "accountId": {
+                            "description": "Adx account id of the buyer.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "buyerContacts": {
+                    "description": "Optional contact information of the buyer. (seller-readonly)",
+                    "items": {
+                        "properties": {
+                            "email": {
+                                "description": "Email address of the contact.",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "The name of the contact.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "buyerPrivateData": {
+                    "description": "Private data for buyer. (hidden from seller).",
+                    "properties": {
+                        "referenceId": {
+                            "type": "string"
+                        },
+                        "referencePayload": {
+                            "format": "byte",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "dbmAdvertiserIds": {
+                    "description": "IDs of DBM advertisers permission to this proposal.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "hasBuyerSignedOff": {
+                    "description": "When an proposal is in an accepted state, indicates whether the buyer has signed off. Once both sides have signed off on a deal, the proposal can be finalized by the seller. (seller-readonly)",
+                    "type": "boolean"
+                },
+                "hasSellerSignedOff": {
+                    "description": "When an proposal is in an accepted state, indicates whether the buyer has signed off Once both sides have signed off on a deal, the proposal can be finalized by the seller. (buyer-readonly)",
+                    "type": "boolean"
+                },
+                "inventorySource": {
+                    "description": "What exchange will provide this inventory (readonly, except on create).",
+                    "type": "string"
+                },
+                "isRenegotiating": {
+                    "description": "True if the proposal is being renegotiated (readonly).",
+                    "type": "boolean"
+                },
+                "isSetupComplete": {
+                    "description": "True, if the buyside inventory setup is complete for this proposal. (readonly, except via OrderSetupCompleted action) Deprecated in favor of deal level setup complete flag.",
+                    "type": "boolean"
+                },
+                "kind": {
+                    "default": "adexchangebuyer#proposal",
+                    "description": "Identifies what kind of resource this is. Value: the fixed string \"adexchangebuyer#proposal\".",
+                    "type": "string"
+                },
+                "labels": {
+                    "description": "List of labels associated with the proposal. (readonly)",
+                    "items": {
+                        "properties": {
+                            "accountId": {
+                                "description": "The accountId of the party that created the label.",
+                                "type": "string"
+                            },
+                            "createTimeMs": {
+                                "description": "The creation time (in ms since epoch) for the label.",
+                                "format": "int64",
+                                "type": "string"
+                            },
+                            "deprecatedMarketplaceDealParty": {
+                                "description": "Information about the party that created the label.",
+                                "properties": {
+                                    "buyer": {
+                                        "description": "The buyer/seller associated with the deal. One of buyer/seller is specified for a deal-party.",
+                                        "properties": {
+                                            "accountId": {
+                                                "description": "Adx account id of the buyer.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "seller": {
+                                        "description": "The buyer/seller associated with the deal. One of buyer/seller is specified for a deal party.",
+                                        "properties": {
+                                            "accountId": {
+                                                "description": "The unique id for the seller. The seller fills in this field. The seller account id is then available to buyer in the product.",
+                                                "type": "string"
+                                            },
+                                            "subAccountId": {
+                                                "description": "Optional sub-account id for the seller.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "label": {
+                                "description": "The label to use.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "lastUpdaterOrCommentorRole": {
+                    "description": "The role of the last user that either updated the proposal or left a comment. (readonly)",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name for the proposal (updatable)",
+                    "type": "string"
+                },
+                "negotiationId": {
+                    "description": "Optional negotiation id if this proposal is a preferred deal proposal.",
+                    "type": "string"
+                },
+                "originatorRole": {
+                    "description": "Indicates whether the buyer/seller created the proposal.(readonly)",
+                    "type": "string"
+                },
+                "privateAuctionId": {
+                    "description": "Optional private auction id if this proposal is a private auction proposal.",
+                    "type": "string"
+                },
+                "proposalId": {
+                    "description": "The unique id of the proposal. (readonly).",
+                    "type": "string"
+                },
+                "proposalState": {
+                    "description": "The current state of the proposal. (readonly)",
+                    "type": "string"
+                },
+                "revisionNumber": {
+                    "description": "The revision number for the proposal (readonly).",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "revisionTimeMs": {
+                    "description": "The time (ms since epoch) when the proposal was last revised (readonly).",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "seller": {
+                    "description": "Reference to the seller on the proposal. (readonly, except on create)",
+                    "properties": {
+                        "accountId": {
+                            "description": "The unique id for the seller. The seller fills in this field. The seller account id is then available to buyer in the product.",
+                            "type": "string"
+                        },
+                        "subAccountId": {
+                            "description": "Optional sub-account id for the seller.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "sellerContacts": {
+                    "description": "Optional contact information of the seller (buyer-readonly).",
+                    "items": {
+                        "properties": {
+                            "email": {
+                                "description": "Email address of the contact.",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "The name of the contact.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

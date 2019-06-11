@@ -1,0 +1,700 @@
+{
+    "title": "Ad Exchange Buyer",
+    "description": "Accesses your bidding-account information, submits creatives for validation, finds available direct deals, and retrieves performance reports.",
+    "docsUrl": "https://developers.google.com/ad-exchange/buyer-rest",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/adexchangebuyer/v1.4/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://www.googleapis.com/adexchangebuyer/v1.4",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "oauth2": {
+                "label": "Oauth 2.0 authentication",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+            "token_uri": "https://www.googleapis.com/oauth2/v4/token",
+            "scopes": [
+                "https://www.googleapis.com/auth/adexchange.buyer"
+            ]
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "adexchangebuyer_accounts_list": {
+            "main": "./lib/actions/adexchangebuyer_accounts_list.js",
+            "title": "Retrieves the authenticated user's list of accounts.",
+            "description": "Retrieves the authenticated user's list of accounts.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_accounts_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_accounts_get": {
+            "main": "./lib/actions/adexchangebuyer_accounts_get.js",
+            "title": "Gets one account by ID.",
+            "description": "Gets one account by ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_accounts_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_accounts_patch": {
+            "main": "./lib/actions/adexchangebuyer_accounts_patch.js",
+            "title": "Updates an existing account. This method supports patch semantics.",
+            "description": "Updates an existing account. This method supports patch semantics.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_accounts_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_accounts_update": {
+            "main": "./lib/actions/adexchangebuyer_accounts_update.js",
+            "title": "Updates an existing account.",
+            "description": "Updates an existing account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_accounts_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_billingInfo_list": {
+            "main": "./lib/actions/adexchangebuyer_billingInfo_list.js",
+            "title": "Retrieves a list of billing information for all accounts of the authenticated user.",
+            "description": "Retrieves a list of billing information for all accounts of the authenticated user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_billingInfo_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_billingInfo_get": {
+            "main": "./lib/actions/adexchangebuyer_billingInfo_get.js",
+            "title": "Returns the billing information for one account specified by account ID.",
+            "description": "Returns the billing information for one account specified by account ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_billingInfo_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_budget_get": {
+            "main": "./lib/actions/adexchangebuyer_budget_get.js",
+            "title": "Returns the budget information for the adgroup specified by the accountId and billingId.",
+            "description": "Returns the budget information for the adgroup specified by the accountId and billingId.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_budget_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_budget_patch": {
+            "main": "./lib/actions/adexchangebuyer_budget_patch.js",
+            "title": "Updates the budget amount for the budget of the adgroup specified by the accountId and billingId, with the budget amount in the request. This method supports patch semantics.",
+            "description": "Updates the budget amount for the budget of the adgroup specified by the accountId and billingId, with the budget amount in the request. This method supports patch semantics.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_budget_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_budget_update": {
+            "main": "./lib/actions/adexchangebuyer_budget_update.js",
+            "title": "Updates the budget amount for the budget of the adgroup specified by the accountId and billingId, with the budget amount in the request.",
+            "description": "Updates the budget amount for the budget of the adgroup specified by the accountId and billingId, with the budget amount in the request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_budget_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_creatives_list": {
+            "main": "./lib/actions/adexchangebuyer_creatives_list.js",
+            "title": "Retrieves a list of the authenticated user's active creatives. A creative will be available 30-40 minutes after submission.",
+            "description": "Retrieves a list of the authenticated user's active creatives. A creative will be available 30-40 minutes after submission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_creatives_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_creatives_insert": {
+            "main": "./lib/actions/adexchangebuyer_creatives_insert.js",
+            "title": "Submit a new creative.",
+            "description": "Submit a new creative.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_creatives_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_creatives_get": {
+            "main": "./lib/actions/adexchangebuyer_creatives_get.js",
+            "title": "Gets the status for a single creative. A creative will be available 30-40 minutes after submission.",
+            "description": "Gets the status for a single creative. A creative will be available 30-40 minutes after submission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_creatives_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_creatives_addDeal": {
+            "main": "./lib/actions/adexchangebuyer_creatives_addDeal.js",
+            "title": "Add a deal id association for the creative.",
+            "description": "Add a deal id association for the creative.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_creatives_addDeal.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_creatives_listDeals": {
+            "main": "./lib/actions/adexchangebuyer_creatives_listDeals.js",
+            "title": "Lists the external deal ids associated with the creative.",
+            "description": "Lists the external deal ids associated with the creative.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_creatives_listDeals.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_creatives_removeDeal": {
+            "main": "./lib/actions/adexchangebuyer_creatives_removeDeal.js",
+            "title": "Remove a deal id associated with the creative.",
+            "description": "Remove a deal id associated with the creative.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_creatives_removeDeal.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_performanceReport_list": {
+            "main": "./lib/actions/adexchangebuyer_performanceReport_list.js",
+            "title": "Retrieves the authenticated user's list of performance metrics.",
+            "description": "Retrieves the authenticated user's list of performance metrics.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_performanceReport_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_pretargetingConfig_list": {
+            "main": "./lib/actions/adexchangebuyer_pretargetingConfig_list.js",
+            "title": "Retrieves a list of the authenticated user's pretargeting configurations.",
+            "description": "Retrieves a list of the authenticated user's pretargeting configurations.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_pretargetingConfig_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_pretargetingConfig_insert": {
+            "main": "./lib/actions/adexchangebuyer_pretargetingConfig_insert.js",
+            "title": "Inserts a new pretargeting configuration.",
+            "description": "Inserts a new pretargeting configuration.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_pretargetingConfig_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_pretargetingConfig_delete": {
+            "main": "./lib/actions/adexchangebuyer_pretargetingConfig_delete.js",
+            "title": "Deletes an existing pretargeting config.",
+            "description": "Deletes an existing pretargeting config.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_pretargetingConfig_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_pretargetingConfig_get": {
+            "main": "./lib/actions/adexchangebuyer_pretargetingConfig_get.js",
+            "title": "Gets a specific pretargeting configuration",
+            "description": "Gets a specific pretargeting configuration",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_pretargetingConfig_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_pretargetingConfig_patch": {
+            "main": "./lib/actions/adexchangebuyer_pretargetingConfig_patch.js",
+            "title": "Updates an existing pretargeting config. This method supports patch semantics.",
+            "description": "Updates an existing pretargeting config. This method supports patch semantics.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_pretargetingConfig_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_pretargetingConfig_update": {
+            "main": "./lib/actions/adexchangebuyer_pretargetingConfig_update.js",
+            "title": "Updates an existing pretargeting config.",
+            "description": "Updates an existing pretargeting config.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_pretargetingConfig_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_marketplaceprivateauction_updateproposal": {
+            "main": "./lib/actions/adexchangebuyer_marketplaceprivateauction_updateproposal.js",
+            "title": "Update a given private auction proposal",
+            "description": "Update a given private auction proposal",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_marketplaceprivateauction_updateproposal.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_products_search": {
+            "main": "./lib/actions/adexchangebuyer_products_search.js",
+            "title": "Gets the requested product.",
+            "description": "Gets the requested product.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_products_search.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_products_get": {
+            "main": "./lib/actions/adexchangebuyer_products_get.js",
+            "title": "Gets the requested product by id.",
+            "description": "Gets the requested product by id.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_products_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_proposals_insert": {
+            "main": "./lib/actions/adexchangebuyer_proposals_insert.js",
+            "title": "Create the given list of proposals",
+            "description": "Create the given list of proposals",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_proposals_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_proposals_search": {
+            "main": "./lib/actions/adexchangebuyer_proposals_search.js",
+            "title": "Search for proposals using pql query",
+            "description": "Search for proposals using pql query",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_proposals_search.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_proposals_get": {
+            "main": "./lib/actions/adexchangebuyer_proposals_get.js",
+            "title": "Get a proposal given its id",
+            "description": "Get a proposal given its id",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_proposals_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_marketplacedeals_list": {
+            "main": "./lib/actions/adexchangebuyer_marketplacedeals_list.js",
+            "title": "List all the deals for a given proposal",
+            "description": "List all the deals for a given proposal",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_marketplacedeals_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_marketplacedeals_delete": {
+            "main": "./lib/actions/adexchangebuyer_marketplacedeals_delete.js",
+            "title": "Delete the specified deals from the proposal",
+            "description": "Delete the specified deals from the proposal",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_marketplacedeals_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_marketplacedeals_insert": {
+            "main": "./lib/actions/adexchangebuyer_marketplacedeals_insert.js",
+            "title": "Add new deals for the specified proposal",
+            "description": "Add new deals for the specified proposal",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_marketplacedeals_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_marketplacedeals_update": {
+            "main": "./lib/actions/adexchangebuyer_marketplacedeals_update.js",
+            "title": "Replaces all the deals in the proposal with the passed in deals",
+            "description": "Replaces all the deals in the proposal with the passed in deals",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_marketplacedeals_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_marketplacenotes_list": {
+            "main": "./lib/actions/adexchangebuyer_marketplacenotes_list.js",
+            "title": "Get all the notes associated with a proposal",
+            "description": "Get all the notes associated with a proposal",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_marketplacenotes_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_marketplacenotes_insert": {
+            "main": "./lib/actions/adexchangebuyer_marketplacenotes_insert.js",
+            "title": "Add notes to the proposal",
+            "description": "Add notes to the proposal",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_marketplacenotes_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_proposals_setupcomplete": {
+            "main": "./lib/actions/adexchangebuyer_proposals_setupcomplete.js",
+            "title": "Update the given proposal to indicate that setup has been completed.",
+            "description": "Update the given proposal to indicate that setup has been completed.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_proposals_setupcomplete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_proposals_patch": {
+            "main": "./lib/actions/adexchangebuyer_proposals_patch.js",
+            "title": "Update the given proposal. This method supports patch semantics.",
+            "description": "Update the given proposal. This method supports patch semantics.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_proposals_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_proposals_update": {
+            "main": "./lib/actions/adexchangebuyer_proposals_update.js",
+            "title": "Update the given proposal",
+            "description": "Update the given proposal",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_proposals_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "adexchangebuyer_pubprofiles_list": {
+            "main": "./lib/actions/adexchangebuyer_pubprofiles_list.js",
+            "title": "Gets the requested publisher profile(s) by publisher accountId.",
+            "description": "Gets the requested publisher profile(s) by publisher accountId.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/adexchangebuyer_pubprofiles_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

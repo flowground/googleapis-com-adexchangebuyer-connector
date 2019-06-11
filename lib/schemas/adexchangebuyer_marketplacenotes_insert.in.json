@@ -1,0 +1,78 @@
+{
+    "type": "object",
+    "properties": {
+        "proposalId": {
+            "required": true,
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "notes": {
+                    "description": "The list of notes to add.",
+                    "items": {
+                        "description": "A proposal is associated with a bunch of notes which may optionally be associated with a deal and/or revision number.",
+                        "properties": {
+                            "creatorRole": {
+                                "description": "The role of the person (buyer/seller) creating the note. (readonly)",
+                                "type": "string"
+                            },
+                            "dealId": {
+                                "description": "Notes can optionally be associated with a deal. (readonly, except on create)",
+                                "type": "string"
+                            },
+                            "kind": {
+                                "default": "adexchangebuyer#marketplaceNote",
+                                "description": "Identifies what kind of resource this is. Value: the fixed string \"adexchangebuyer#marketplaceNote\".",
+                                "type": "string"
+                            },
+                            "note": {
+                                "description": "The actual note to attach. (readonly, except on create)",
+                                "type": "string"
+                            },
+                            "noteId": {
+                                "description": "The unique id for the note. (readonly)",
+                                "type": "string"
+                            },
+                            "proposalId": {
+                                "description": "The proposalId that a note is attached to. (readonly)",
+                                "type": "string"
+                            },
+                            "proposalRevisionNumber": {
+                                "description": "If the note is associated with a proposal revision number, then store that here. (readonly, except on create)",
+                                "format": "int64",
+                                "type": "string"
+                            },
+                            "timestampMs": {
+                                "description": "The timestamp (ms since epoch) that this note was created. (readonly)",
+                                "format": "int64",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

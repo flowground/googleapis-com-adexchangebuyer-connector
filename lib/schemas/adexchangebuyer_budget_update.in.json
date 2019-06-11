@@ -1,0 +1,63 @@
+{
+    "type": "object",
+    "properties": {
+        "accountId": {
+            "required": true,
+            "type": "string"
+        },
+        "billingId": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The configuration data for Ad Exchange RTB - Budget API.",
+            "properties": {
+                "accountId": {
+                    "description": "The id of the account. This is required for get and update requests.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "billingId": {
+                    "description": "The billing id to determine which adgroup to provide budget information for. This is required for get and update requests.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "budgetAmount": {
+                    "description": "The daily budget amount in unit amount of the account currency to apply for the billingId provided. This is required for update requests.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "currencyCode": {
+                    "description": "The currency code for the buyer. This cannot be altered here.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The unique id that describes this item.",
+                    "type": "string"
+                },
+                "kind": {
+                    "default": "adexchangebuyer#budget",
+                    "description": "The kind of the resource, i.e. \"adexchangebuyer#budget\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

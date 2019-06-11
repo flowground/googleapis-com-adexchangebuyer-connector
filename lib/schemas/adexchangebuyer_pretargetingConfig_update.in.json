@@ -1,0 +1,262 @@
+{
+    "type": "object",
+    "properties": {
+        "accountId": {
+            "required": true,
+            "type": "string"
+        },
+        "configId": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "billingId": {
+                    "description": "The id for billing purposes, provided for reference. Leave this field blank for insert requests; the id will be generated automatically.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "configId": {
+                    "description": "The config id; generated automatically. Leave this field blank for insert requests.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "configName": {
+                    "description": "The name of the config. Must be unique. Required for all requests.",
+                    "type": "string"
+                },
+                "creativeType": {
+                    "description": "List must contain exactly one of PRETARGETING_CREATIVE_TYPE_HTML or PRETARGETING_CREATIVE_TYPE_VIDEO.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "dimensions": {
+                    "description": "Requests which allow one of these (width, height) pairs will match. All pairs must be supported ad dimensions.",
+                    "items": {
+                        "properties": {
+                            "height": {
+                                "description": "Height in pixels.",
+                                "format": "int64",
+                                "type": "string"
+                            },
+                            "width": {
+                                "description": "Width in pixels.",
+                                "format": "int64",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "excludedContentLabels": {
+                    "description": "Requests with any of these content labels will not match. Values are from content-labels.txt in the downloadable files section.",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "excludedGeoCriteriaIds": {
+                    "description": "Requests containing any of these geo criteria ids will not match.",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "excludedPlacements": {
+                    "description": "Requests containing any of these placements will not match.",
+                    "items": {
+                        "properties": {
+                            "token": {
+                                "description": "The value of the placement. Interpretation depends on the placement type, e.g. URL for a site placement, channel name for a channel placement, app id for a mobile app placement.",
+                                "type": "string"
+                            },
+                            "type": {
+                                "description": "The type of the placement.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "excludedUserLists": {
+                    "description": "Requests containing any of these users list ids will not match.",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "excludedVerticals": {
+                    "description": "Requests containing any of these vertical ids will not match. Values are from the publisher-verticals.txt file in the downloadable files section.",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "geoCriteriaIds": {
+                    "description": "Requests containing any of these geo criteria ids will match.",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "isActive": {
+                    "description": "Whether this config is active. Required for all requests.",
+                    "type": "boolean"
+                },
+                "kind": {
+                    "default": "adexchangebuyer#pretargetingConfig",
+                    "description": "The kind of the resource, i.e. \"adexchangebuyer#pretargetingConfig\".",
+                    "type": "string"
+                },
+                "languages": {
+                    "description": "Request containing any of these language codes will match.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "minimumViewabilityDecile": {
+                    "description": "Requests where the predicted viewability is below the specified decile will not match. E.g. if the buyer sets this value to 5, requests from slots where the predicted viewability is below 50% will not match. If the predicted viewability is unknown this field will be ignored.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "mobileCarriers": {
+                    "description": "Requests containing any of these mobile carrier ids will match. Values are from mobile-carriers.csv in the downloadable files section.",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "mobileDevices": {
+                    "description": "Requests containing any of these mobile device ids will match. Values are from mobile-devices.csv in the downloadable files section.",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "mobileOperatingSystemVersions": {
+                    "description": "Requests containing any of these mobile operating system version ids will match. Values are from mobile-os.csv in the downloadable files section.",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "placements": {
+                    "description": "Requests containing any of these placements will match.",
+                    "items": {
+                        "properties": {
+                            "token": {
+                                "description": "The value of the placement. Interpretation depends on the placement type, e.g. URL for a site placement, channel name for a channel placement, app id for a mobile app placement.",
+                                "type": "string"
+                            },
+                            "type": {
+                                "description": "The type of the placement.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "platforms": {
+                    "description": "Requests matching any of these platforms will match. Possible values are PRETARGETING_PLATFORM_MOBILE, PRETARGETING_PLATFORM_DESKTOP, and PRETARGETING_PLATFORM_TABLET.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "supportedCreativeAttributes": {
+                    "description": "Creative attributes should be declared here if all creatives corresponding to this pretargeting configuration have that creative attribute. Values are from pretargetable-creative-attributes.txt in the downloadable files section.",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "userIdentifierDataRequired": {
+                    "description": "Requests containing the specified type of user data will match. Possible values are HOSTED_MATCH_DATA, which means the request is cookie-targetable and has a match in the buyer's hosted match table, and COOKIE_OR_IDFA, which means the request has either a targetable cookie or an iOS IDFA.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "userLists": {
+                    "description": "Requests containing any of these user list ids will match.",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "vendorTypes": {
+                    "description": "Requests that allow any of these vendor ids will match. Values are from vendors.txt in the downloadable files section.",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "verticals": {
+                    "description": "Requests containing any of these vertical ids will match.",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "videoPlayerSizes": {
+                    "description": "Video requests satisfying any of these player size constraints will match.",
+                    "items": {
+                        "properties": {
+                            "aspectRatio": {
+                                "description": "The type of aspect ratio. Leave this field blank to match all aspect ratios.",
+                                "type": "string"
+                            },
+                            "minHeight": {
+                                "description": "The minimum player height in pixels. Leave this field blank to match any player height.",
+                                "format": "int64",
+                                "type": "string"
+                            },
+                            "minWidth": {
+                                "description": "The minimum player width in pixels. Leave this field blank to match any player width.",
+                                "format": "int64",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
